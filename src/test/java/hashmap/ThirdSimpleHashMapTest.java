@@ -40,12 +40,12 @@ public class ThirdSimpleHashMapTest {
         assertEquals("Holly Flax, +1 610 505 505", result);
     }
 
-    @Test
+/*    @Test
     public void resize_whenManyEntries_thenDoubleCapacity() {
         fillMap();
         assertEquals(32, hashMap.getCapacity());
         assertEquals(14, hashMap.getSize());
-    }
+    }*/
 
     private void fillMap() {
         hashMap.put("Anderson Roy", "Pam Beesly, +1 610 505 601");
@@ -59,7 +59,6 @@ public class ThirdSimpleHashMapTest {
         hashMap.put("Stanley Hudson", "Terry Hudson, +1 610 505 609");
         hashMap.put("Phyllis Vans", "Bob Vance Vance Refrigeration, +1 610 505 806");
         hashMap.put("Ryan Howard", "Ms. Howard, +1 610 505 809");
-
     }
 
     private ThirdSimpleHashMap<String> getHashMap() {
