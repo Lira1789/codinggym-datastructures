@@ -1,5 +1,6 @@
 package linkedlist;
 
+import model.Employee;
 import model.Fax;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,38 +11,41 @@ import static org.junit.Assert.*;
 
 public class MyLinkedListTest {
 
-    private Fax fax1;
-    private Fax fax2;
-    private Fax fax3;
-    private Fax fax4;
+    private Employee employee1;
+    private Employee employee2;
+    private Employee employee3;
+    private Employee employee4;
+    private Employee employee5;
+    private Employee employee6;
+
 
     @Before
     public void setUp() throws Exception {
-        receiveFaxes();
+        fullEmployees();
     }
 
     @Test
     public void get_WhenElementInList_thenReturnsElement() {
-        MyLinkedList<Fax> list = getMyLinkedList();
+        MyLinkedList<Employee> list = getMyLinkedList();
 
-        Fax resultFax = list.get(fax2);
-        assertEquals(fax2, resultFax);
+        Employee result = list.get(employee2);
+        assertEquals(employee2, result);
     }
 
     @Test
     public void get_whenElementNotInList_thenReturnsNull() {
-        MyLinkedList<Fax> list = new MyLinkedList<>();
-        list.add(fax1);
-        list.add(fax2);
+        MyLinkedList<Employee> list = new MyLinkedList<>();
+        list.add(employee1);
+        list.add(employee2);
 
-        Fax resultFax = list.get(fax3);
-        assertNull(resultFax);
+        Employee result = list.get(employee3);
+        assertNull(result);
     }
 
     @Test
     public void reverseList() {
-        MyLinkedList<Fax> list = getMyLinkedList();
-        MyLinkedList<Fax> expectedList = getReversedMyLinkedList();
+        MyLinkedList<Employee> list = getMyLinkedList();
+        MyLinkedList<Employee> expectedList = getReversedMyLinkedList();
 
         list.printList();
         list.reverseList();
@@ -50,29 +54,36 @@ public class MyLinkedListTest {
         assertEquals(expectedList, list);
     }
 
-    private void receiveFaxes() {
-        fax1 = Fax.builder().from("Jan Levinson").subject("Downsizing").date(LocalDate.of(2006,12,1)).build();
-        fax2 = Fax.builder().from("Staples").subject("We are hiring").date(LocalDate.of(2006,12,2)).build();
-        fax3 = Fax.builder().from("Dwight from Future").subject("Coffee is poisoned").date(LocalDate.of(2006,12,1)).build();
-        fax4 = Fax.builder().from("Dunder Mifflin New York").subject("Diversity training").date(LocalDate.of(2006,12,1)).build();
+    private void fullEmployees() {
+
+        employee1 = Employee.builder().name("Dwigth").lastname("Schrut").position("Assistant to the regional manager").build();
+        employee2 = Employee.builder().name("Phyllis").lastname("Lapin").position("Salesman").build();
+        employee3 = Employee.builder().name("Michael").lastname("Scott").position("Regional manager").build();
+        employee4 = Employee.builder().name("Ryan").lastname("Howard").position("The temp").build();
+        employee5 = Employee.builder().name("Toby").lastname("Flanderson").position("HR").build();
+        employee6 = Employee.builder().name("Angela").lastname("Martin").position("Accountant").build();
     }
 
-    private MyLinkedList<Fax> getMyLinkedList() {
-        MyLinkedList<Fax> list = new MyLinkedList<>();
-        list.add(fax1);
-        list.add(fax2);
-        list.add(fax3);
-        list.add(fax4);
+    private MyLinkedList<Employee> getMyLinkedList() {
+        MyLinkedList<Employee> list = new MyLinkedList<>();
+        list.add(employee1);
+        list.add(employee2);
+        list.add(employee3);
+        list.add(employee4);
+        list.add(employee5);
+        list.add(employee6);
 
         return list;
     }
 
-    private MyLinkedList<Fax> getReversedMyLinkedList() {
-        MyLinkedList<Fax> list = new MyLinkedList<>();
-        list.add(fax4);
-        list.add(fax3);
-        list.add(fax2);
-        list.add(fax1);
+    private MyLinkedList<Employee> getReversedMyLinkedList() {
+        MyLinkedList<Employee> list = new MyLinkedList<>();
+        list.add(employee6);
+        list.add(employee5);
+        list.add(employee4);
+        list.add(employee3);
+        list.add(employee2);
+        list.add(employee1);
 
         return list;
     }
