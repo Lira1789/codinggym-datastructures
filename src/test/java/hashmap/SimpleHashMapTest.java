@@ -40,7 +40,7 @@ public class SimpleHashMapTest {
         SimpleHashMap hashMap = new SimpleHashMap();
         hashMap.put("Scott Michael", "Holly Flax, +1 610 505 505");
         hashMap.put("Halpert Jim", "Pam Beesly, +1 610 505 506");
-        hashMap.put("Beesly Pamela", "Helene Beesly, +1 610 505 507");
+        hashMap.put("Halpert Pamela", "Helene Beesly, +1 610 505 507");
         return hashMap;
     }
 }
